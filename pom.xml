@@ -41,7 +41,7 @@
             <configuration>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>br.edu.ifpr.Main</mainClass>
+                  <mainClass>br.edu.ifpr.crud.main.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>
