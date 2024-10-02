@@ -4,8 +4,10 @@ import java.util.UUID;
 
 public interface Identifiable {
 
+    UUID id = UUID.randomUUID();
+
     default UUID getId() {
-        return UUID.randomUUID();
+        return id;
     }
 
 }

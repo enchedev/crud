@@ -1,6 +1,8 @@
 package br.edu.ifpr.persistencia.core;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -8,7 +10,11 @@ import java.util.stream.Collectors;
 
 public class Query<T> {
 
-    private Map<UUID, T> data;
+    private Map<UUID, T> data = new LinkedHashMap<>();
+
+    private Query() {
+
+    }
 
 	public Query(Map<UUID, T> data) {
 		this.data = data;
@@ -19,7 +25,10 @@ public class Query<T> {
     }
 
     public Query<T> is(UUID id) {
-        return new Query<>(Map.of(id, data.get(id)));
+        return Optional.ofNullable(data.get(id)).map(entity -> {
+            data = Map.of(id, entity);
+            return this;
+        }).orElse(new Query<>());
     }
 
     public Query<T> is(Predicate<T> predicate) {
