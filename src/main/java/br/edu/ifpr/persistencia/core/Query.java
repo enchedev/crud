@@ -34,13 +34,13 @@ public class Query<T> {
 
     public Query<T> or(Predicate<T> lhs, Predicate<T> rhs) {
         final var result = data.entrySet().stream().filter(e -> lhs.test(e.getValue())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-        data = result.isEmpty() ? result : data.entrySet().stream().filter(e -> rhs.test(e.getValue())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        data = !result.isEmpty() ? result : data.entrySet().stream().filter(e -> rhs.test(e.getValue())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         return this;
     }
 
     public <U> Query<T> or(Predicate<U> lhs, Predicate<U> rhs, Function<T, U> projection) {
         final var result = data.entrySet().stream().filter(e -> lhs.test(projection.apply(e.getValue()))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-        data = result.isEmpty() ? result : data.entrySet().stream().filter(e -> rhs.test(projection.apply(e.getValue()))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        data = !result.isEmpty() ? result : data.entrySet().stream().filter(e -> rhs.test(projection.apply(e.getValue()))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         return this;
     }
 
