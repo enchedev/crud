@@ -1,10 +1,7 @@
 package br.edu.ifpr.crud.modelo;
 
 import br.edu.ifpr.persistencia.interfaces.Identifiable;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -12,6 +9,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ToString
+@NoArgsConstructor
 abstract class Pessoa extends Identifiable {
 
     protected String nome;

@@ -1,21 +1,16 @@
 package br.edu.ifpr.crud.modelo;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Getter
 @ToString
 @EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class PessoaFisica extends Pessoa {
 
-    private String cpf;
-
-    public PessoaFisica(String cpf, String nome, LocalDate nascimento, Endereco endereco) {
-        super(nome, nascimento, endereco);
-        this.cpf = cpf;
-    }
+    protected String cpf;
 
 }

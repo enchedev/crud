@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @Data
-@AllArgsConstructor
 @EqualsAndHashCode
 @ToString
 public final class Endereco {
@@ -17,5 +16,14 @@ public final class Endereco {
     private String cidade;
     private String estado;
     private String cep;
+
+    Endereco(String nomeRua, Integer numero, String bairro, String cidade, String estado, String cep) {
+        this.nomeRua = nomeRua;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cep = cep;
+    }
 
 }
