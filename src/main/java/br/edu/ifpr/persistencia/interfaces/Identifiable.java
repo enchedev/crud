@@ -1,13 +1,12 @@
 package br.edu.ifpr.persistencia.interfaces;
 
+import lombok.Getter;
+
 import java.util.UUID;
 
-public interface Identifiable {
+@Getter
+public abstract class Identifiable {
 
     UUID id = UUID.randomUUID();
-
-    default UUID getId() {
-        return id;
-    }
 
 }

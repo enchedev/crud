@@ -1,18 +1,16 @@
 package br.edu.ifpr.crud.modelo;
 
 import br.edu.ifpr.persistencia.interfaces.Identifiable;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @ToString
-public abstract class Pessoa implements Identifiable {
+@NoArgsConstructor
+abstract class Pessoa extends Identifiable {
 
     protected String nome;
     protected LocalDate nascimento;

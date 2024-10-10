@@ -1,8 +1,6 @@
 package br.edu.ifpr.crud.modelo;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
@@ -10,15 +8,11 @@ import java.time.LocalDate;
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class PessoaJuridica extends Pessoa {
 
-    private String cnpj;
-    private String nomeFantasia;
-
-    public PessoaJuridica(String cnpj, String nomeFantasia, String nome, LocalDate nascimento, Endereco endereco) {
-        super(nome, nascimento, endereco);
-        this.cnpj = cnpj;
-        this.nomeFantasia = nomeFantasia;
-    }
+    protected String cnpj;
+    protected String nomeFantasia;
 
 }

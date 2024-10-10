@@ -1,5 +1,10 @@
 .jj/
 .idea/
+.settings/
 target/
+
+.classpath
+.factorypath
+.project
 
 dependency-reduced-pom.xml
