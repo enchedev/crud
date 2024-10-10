@@ -10,9 +10,9 @@ import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @ToString
-public abstract class Pessoa implements Identifiable {
+abstract class Pessoa extends Identifiable {
 
     protected String nome;
     protected LocalDate nascimento;
