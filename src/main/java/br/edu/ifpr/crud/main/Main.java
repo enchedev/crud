@@ -19,7 +19,7 @@ public class Main {
     final PessoaJuridicaPersistencia pessoaJuridicaPersistencia = new PessoaJuridicaPersistencia();
 
     void inicializarPessoasFisicas() {
-        for (var letter = 'A'; letter != 'B'; letter += 1) {
+        for (var letter = 'A'; letter != 'Z'; letter += 1) {
             pessoaFisicaPersistencia.insert(
                 PessoaFisicaFluent
                     .make()
@@ -32,7 +32,7 @@ public class Main {
     }
 
     void inicializarPessoasJuridicas() {
-        for (var letter = 'A'; letter != 'B'; letter += 1) {
+        for (var letter = 'A'; letter != 'Z'; letter += 1) {
             pessoaJuridicaPersistencia.insert(
                 PessoaJuridicaFluent
                     .make()
